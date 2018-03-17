@@ -1,0 +1,106 @@
+//사각형 넓이 구하기
+import java.util.Scanner;
+public class AreaofSquare {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	int number;
+	int temp=0;
+	int preLength=1;
+	int length=1;
+	int area;
+	int totalArea=0;
+	
+	Scanner scanner = new Scanner(System.in);
+	
+	number=scanner.nextInt();
+	
+	for(int count=1; count<=number; count++) {
+		if(count>2) 
+		{
+			temp=preLength;
+			preLength=length;
+			length=temp + preLength;
+		}
+		else
+		{
+			length = temp + length;
+			
+		}
+		area=length * length;
+		totalArea=totalArea + area;
+	}
+	
+	System.out.printf("사각형의 총 넓이는 %d\n", totalArea);
+	scanner.close();
+	}
+
+}
+
+//사각형 둘레 구하기
+
+import java.util.Scanner;
+public class Perimeter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int perimeter=0;
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		int number = scanner.nextInt();		
+		
+		
+		while(number>0) {
+			int temp=0;
+			int preLength=0;
+			int length=1;
+			int count;
+		
+			
+			for(count=1; count<=number; count++) {
+			
+				if(count!=1) {
+					length = length + temp;
+					temp = preLength;
+					preLength = length;
+				}
+				else {
+					temp = 1;
+					preLength = 1;
+				}
+			perimeter = (preLength + temp) * 2;
+			}
+			System.out.printf("사각형 둘레는 %d\n", perimeter);
+			
+			number = scanner.nextInt();
+		}
+	}
+
+}
+
+//윤년
+package leapYear;
+import java.util.Scanner;
+public class leapYear {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		String s="";
+		int year=scanner.nextInt();
+		while(year>0) {
+				if((year % 4 == 0 && year % 100 != 0) || year%400 == 0) {
+					s="윤년입니다";
+				}
+				else {
+					s="평년입니다";
+				}
+				System.out.println(s);
+				year=scanner.nextInt();
+		}
+		
+	}
+
+}
